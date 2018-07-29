@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.httpService.getAll('fetchAllRoles').subscribe(roleRes=>{
+    this.httpService.getAll('role/fetchAllRoles').subscribe(roleRes=>{
       roleRes.map(singleRoleRes=>{
         this.rolesObjArr.push({
           roleName: singleRoleRes.name,
@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignupButtonClick(){
-    this.httpService.post('addUser', this.userSignupForm.getRawValue())
+    this.httpService.post('user/addUser', this.userSignupForm.getRawValue())
     .subscribe(response=>{
       if(response.hasOwnProperty('success')){
         this.notificationService.success(response.success, "Success");

@@ -2,27 +2,25 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
-## Development server
+Steps in solving the problem-:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1) Created Git Repository for FrontEnd.
+2) Started with intial FrontEnd Setup. Added needful packages.
+3) Added http-service, with get, post, update and delete functions.
+4) Created signup page, and connected it to user/addUser api endpoint (Here any type of user can be created- Admin, Doctor or Patient).
+5) Created login page, abd connected it to login api.
+6) Created dashboard page with buttons - Add Doctor, View Doctor, Chat with Doctor, Add Patient, View Patient, Chat with Patient and Logout.
+7) Implemented logout functionality on Logout button.
+8) Created list page which shows list of doctor or patient.
+9) Created add page to add doctor or patient.
+10) Added authorization-service, to save currently logged in user's details.
+11) Added auth-guard, to restrict user on the basis of there type (Admin, Doctor or Patient).
+12) Implemented basic error handling.
+13) Added notification-service, to show proper notifications.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Further steps that I would have followed, if there was more time-:
+1) Code optimization.
+2) Reducing code redundancy.
+3) Implementing chat feature's frontend.
+4) Improvising implemented feature..
