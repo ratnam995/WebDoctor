@@ -10,7 +10,6 @@ export class NotificationService {
     }
 
     error(msg: string, header: string): void {
-        console.log("HEREEEE");
         this.toastr.error(msg, header, { toastLife: 5000, maxShown: 2, showCloseButton: true });
     }
 

@@ -48,9 +48,4 @@ _currentUserData:any={};
   getSessionID():string{
       return this.sessionID;
   }
-//   checkLogin(){
-//       this.httpService.get('checkSession').subscribe(res=>{
-//           console.log
-//       })
-//   }
 }

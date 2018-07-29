@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-
-import { AuthenticationService } from '../services/authentication-service';
 import { HttpService } from '../services/http-service';
+import { AuthenticationService } from '../services/authentication-service';
+import { NotificationService } from '../services/notification-service';
+
 
 @Injectable()
 export /**
@@ -11,9 +11,10 @@ export /**
  */
 class UserLoggedGuard implements CanActivate {
     constructor(
-        private authenticationService: AuthenticationService,
         private httpService: HttpService,
-        private router: Router
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private notificationService: NotificationService
     ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -38,10 +39,9 @@ class UserLoggedGuard implements CanActivate {
                     .subscribe(res=>{
                         localStorage.removeItem('sessionID')
                         this.router.navigate(['login']);
+                        this.notificationService.error("Session Expired. Please login again.", "Error");
+                        return false;
                     });
-                    localStorage.removeItem('sessionID');
-                    this.router.navigate(['login']);
-                    return false;
                 })
             }
             else{

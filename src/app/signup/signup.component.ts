@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.httpService.getAll('fetchAllRoles').subscribe(roleRes=>{
-      console.log(roleRes);
       roleRes.map(singleRoleRes=>{
         this.rolesObjArr.push({
           roleName: singleRoleRes.name,
@@ -42,10 +41,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSignupButtonClick(){
-    console.log(this.userSignupForm.getRawValue());
     this.httpService.post('addUser', this.userSignupForm.getRawValue())
     .subscribe(response=>{
-      // console.log("response", response);
       if(response.hasOwnProperty('success')){
         this.notificationService.success(response.success, "Success");
       }
@@ -53,7 +50,6 @@ export class SignupComponent implements OnInit {
     },
     (err)=>{
       this.notificationService.error(err.error, "Error");
-      console.log("err", err);
     });
   }
 

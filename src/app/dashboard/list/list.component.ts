@@ -19,7 +19,6 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("this.authen", this.authenticationService.currentUserData);
     let url="";
     if(this.authenticationService.listOf === "Doctor"){
       url= "user/fetchAllDoctors";
@@ -30,16 +29,17 @@ export class ListComponent implements OnInit {
     if(url.length && this.authenticationService.currentUserData.userRoleTag){
       this.httpService.post(url, {userRole: this.authenticationService.currentUserData.userRoleTag})
       .subscribe(res=>{
-        console.log("HEREEEEEEEEE", res);
         if(res && res.length){
           this.list= res.map(singleRes=> singleRes);
+        }
+        else{
+          this.notificationService.info('No'+ this.authenticationService.listOf +'found');
         }
       })
     }
     else{
       this.httpService.destroy('session/deleteSession', localStorage.getItem("sessionID"))
       .subscribe(res=>{
-        console.log("Session Removed",res);
         this.notificationService.error("Something went wrong", "Error");
         localStorage.removeItem('sessionID');
         this.router.navigate(['login']);

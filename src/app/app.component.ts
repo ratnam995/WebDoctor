@@ -17,11 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.viewContainerRef = viewContainerRef;
   }
 
-  ngOnDestroy(): void {
-    console.log("ngondestroy");
-  }
+  ngOnDestroy(): void {}
 
-  ngOnInit(): void {
-    console.log("ngoninit");
-  }
+  ngOnInit(): void {}
 }

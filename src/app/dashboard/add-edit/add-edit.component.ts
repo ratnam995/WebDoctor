@@ -26,7 +26,6 @@ export class AddEditComponent implements OnInit {
 
   ngOnInit() {
     this.httpService.getAll('role/fetchAllRoles').subscribe(roleRes=>{
-      console.log(roleRes);
       roleRes.map(singleRoleRes=>{
         if(this.authenticationService.addOf === 'Doctor'){
           if(singleRoleRes.tag === "webDoc.doctor"){
@@ -51,12 +50,10 @@ export class AddEditComponent implements OnInit {
   }
 
   onSaveButtonClick(){
-    console.log(this.userSignupForm.getRawValue());
     let dataToBeSaved= this.userSignupForm.getRawValue();
     dataToBeSaved['userRoleTag']= this.rolesObj.tag;
     this.httpService.post('user/addUser', dataToBeSaved)
     .subscribe(response=>{
-      // console.log("response", response);
       if(response.hasOwnProperty('success')){
         this.notificationService.success(response.success, "Success");
       }
@@ -64,7 +61,6 @@ export class AddEditComponent implements OnInit {
     },
     (err)=>{
       this.notificationService.error(err.error, "Error");
-      console.log("err", err);
     });
   }
 

@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
   onLogoutClick(){
     this.httpService.destroy('session/deleteSession', localStorage.getItem("sessionID"))
     .subscribe(res=>{
-      console.log("Session Removed",res);
       localStorage.removeItem('sessionID')
       this.router.navigate(['login']);
     })
