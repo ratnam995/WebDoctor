@@ -1,0 +1,43 @@
+<!-- <div style="width:100%; height:100%; background: lightskyblue"> -->
+    <div class="card" style="width: 30rem; margin-left:35%">
+        <div class="card-body">
+          <h3 class="card-title">Add {{authenticationService.addOf}}</h3>
+          <p class="card-text">  
+            <form [formGroup]="userSignupForm" (ngSubmit)="onSaveButtonClick()">
+              <div class="form-group">
+                <label for="inputUserName">Name</label>
+                <input type="text" class="form-control" id="inputUserName" aria-describedby="emailHelp" name="uname" formControlName="userName" [disabled]="disable" placeholder="Enter Name">
+              </div>
+              <!-- <div class="form-group">
+                <label for="inputUserRole">Role</label>
+                <select class="form-control form-control-sm" id="acc_type" id="inputUserRole" formControlName="userRoleTag">
+                  <!-- <option [value]="" [selected]=>Select User Role</option> -->
+                  <!-- <option *ngFor="let roleObj of rolesObjArr" [value]="roleObj.roleTag">{{roleObj.roleName}}</option>
+                </select>
+              </div> -->
+              <div class="form-group">
+                <label for="inputUserEmail">Email</label>
+                <input type="text" class="form-control" id="inputUserEmail" aria-describedby="emailHelp" name="uemail" formControlName="userEmail" [disabled]="disable" placeholder="Enter Email">
+              </div>
+              <div class="form-group">
+                <label for="inputUserNum">Phone Number</label>
+                <input type="text" class="form-control" id="inputUserNum" aria-describedby="emailHelp" name="unum" formControlName="userPhoneNum" [disabled]="disable" placeholder="Enter Phone Number">
+              </div>
+              <div class="form-group">
+                <label for="inputUserAddress">Address</label>
+                <input type="text" class="form-control" id="inputUserAddress" aria-describedby="emailHelp" name="uaddress" formControlName="userAddress" [disabled]="disable" placeholder="Enter Address">
+              </div>
+              <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" formControlName="userPassword" name="upass" [disabled]="disable" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="disable">
+                Save
+              </button>
+              <button class="btn btn-primary" (click)="onBackButtonClick()" [disabled]="disable">
+                Back
+              </button>
+          </form>
+        </div>
+      </div>
+    <!-- </div> -->

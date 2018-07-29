@@ -1,0 +1,8 @@
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.patient'"(click)="onViewDoctorListClick()"> View Doctors</button>
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.patient'" (click)="onChatDoctorClick()"> Chat with Doctor</button>
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.doctor'" (click)="onAddDoctorClick()"> Add Doctors</button>
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.doctor'" (click)="onViewPatientListClick()"> View Patients</button>
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.doctor'" (click)="onChatPatientClick()"> Chat with Patients</button>
+<button *ngIf="authenticationService?.currentUserData?.userRoleTag === 'webDoc.admin' || authenticationService?.currentUserData?.userRoleTag === 'webDoc.doctor'" (click)="onAddPatientClick()"> Add Patients</button>
+<button (click)="onLogoutClick()">Log out</button>
+<router-outlet></router-outlet>

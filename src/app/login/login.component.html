@@ -1,0 +1,26 @@
+<!-- <div style="width:100%; height:100%; background: lightskyblue"> -->
+  <div class="card text-center" style="width: 30rem; margin-left:35%">
+    <img class="card-img-top" src="assets/doc-logo-login.png" alt="Card image cap">
+    <div class="card-body">
+      <h3 class="card-title">Login</h3>
+      <p class="card-text">  <form>
+        <div class="form-group">
+          <label for="inputUserName">User Name</label>
+          <input type="text" class="form-control" id="inputUserName" aria-describedby="emailHelp" name="uname" [(ngModel)]="userName" [disabled]="disable" placeholder="Enter User Name">
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" [(ngModel)]="userPass" name="upass" [disabled]="disable" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onLoginButtonClick()" [disabled]="disable">
+          <span *ngIf="!disable"> Log In  </span>
+          <span *ngIf="disable">Please wait... <i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span>
+        </button>
+        <button type="submit" class="btn btn-primary" (click)="onSignupButtonClick()" [disabled]="disable">
+          Sign Up
+        </button>
+      </form>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+  </div>
+<!-- </div> -->

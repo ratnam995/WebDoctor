@@ -1,0 +1,14 @@
+<ul style="width: 100%">
+  <li class="row" style="width: 70%">
+      <span class="col-sm"> Name </span>
+      <span class="col-sm"> Email </span>
+      <span class="col-sm"> Phone Number </span>
+      <span class="col-sm"> Address </span>
+  </li>
+  <li class="row" style="width: 70%" *ngFor="let listItems of list">
+    <span class="col-sm"> {{listItems?.userName}} </span>
+    <span class="col-sm"> {{listItems?.userEmail}} </span>
+    <span class="col-sm"> {{listItems?.userPhoneNum}} </span>
+    <span class="col-sm"> {{listItems?.userAddress}} </span>
+  </li>
+</ul>
