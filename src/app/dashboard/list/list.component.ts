@@ -22,10 +22,10 @@ export class ListComponent implements OnInit {
     console.log("this.authen", this.authenticationService.currentUserData);
     let url="";
     if(this.authenticationService.listOf === "Doctor"){
-      url= "fetchAllDoctors";
+      url= "user/fetchAllDoctors";
     }
     else if(this.authenticationService.listOf === "Patient"){
-      url= "fetchAllPatients";
+      url= "user/fetchAllPatients";
     }
     if(url.length && this.authenticationService.currentUserData.userRoleTag){
       this.httpService.post(url, {userRole: this.authenticationService.currentUserData.userRoleTag})
@@ -37,7 +37,7 @@ export class ListComponent implements OnInit {
       })
     }
     else{
-      this.httpService.destroy('deleteSession', localStorage.getItem("sessionID"))
+      this.httpService.destroy('session/deleteSession', localStorage.getItem("sessionID"))
       .subscribe(res=>{
         console.log("Session Removed",res);
         this.notificationService.error("Something went wrong", "Error");

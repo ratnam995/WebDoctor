@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HttpService } from './shared/services/http-service';
 import { NotificationService } from './shared/services/notification-service';
 import { AuthenticationService } from './shared/services/authentication-service';
+import { UserLoggedGuard } from './shared/guards/user-logged-in-guard';
 // import { DoctorAddEditComponent } from './src/app/doctor-add-edit/doctor-add-edit.component';
 // import { DashboardComponent } from './dashboard/src/app/dashboard/dashboard/dashboard.component';
 
@@ -32,7 +33,7 @@ import { AuthenticationService } from './shared/services/authentication-service'
     // NgbModule.forRoot()
   ],
   declarations: [AppComponent],
-  providers:[ HttpService, NotificationService, AuthenticationService ],
+  providers:[ HttpService, NotificationService, AuthenticationService, UserLoggedGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

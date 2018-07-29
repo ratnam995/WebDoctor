@@ -18,36 +18,40 @@ export class HttpService {
 
   constructor(
     protected http: Http,
-    // protected notificationService: NotificationService,
     private router: Router
   ) {
-    // this.authHttp = new AuthHttp(new AuthConfig(), http);
   }
 
-  get(url: string, elementID: any, headers: any = null): Observable<any> {
-    console.log("Inside http service", url, elementID, headers);
+  get(url: string, elementID: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('sessionID', localStorage.getItem("sessionID"));
+    console.log("Inside http service get", url, elementID, headers);
     // this.service = this.authenticatedAPI ? this.authHttp : this.http;
     return this.http
-      .get(`${API_HOST}/${url}/` + elementID)
+      .get(`${API_HOST}/${url}/` + elementID, {headers: headers})
       .map((response: Response) => {
         return response.json();
       });
   }
 
-  getAll(url: string, headers: any = null): Observable<any> {
-    console.log("Inside http service", url, headers);
+  getAll(url: string): Observable<any> {
+    let headers = new Headers();
+    headers.append('sessionID', localStorage.getItem("sessionID"));
+    console.log("Inside http service getall", url, headers);
     // this.service = this.authenticatedAPI ? this.authHttp : this.http;
     return this.http
-      .get(`${API_HOST}/${url}/`)
+      .get(`${API_HOST}/${url}/`, {headers: headers})
       .map((response: Response) => {
         return response.json();
       });
   }
 
   post(url: string, element: any): Observable<any>{
-      console.log("Called 2 times");
+    let headers = new Headers();
+    headers.append('sessionID', localStorage.getItem("sessionID"));
+    console.log("Inside http service post", url, headers);
     return this.http
-    .post(`${API_HOST}/${url}/`, element)
+    .post(`${API_HOST}/${url}/`, element, {headers: headers})
     .map((response: Response) => {
       return response.json();
     })
@@ -59,8 +63,11 @@ export class HttpService {
   }
 
   update(url: string, elementID: string, newElement: any): Observable<any>{
+    let headers = new Headers();
+    headers.append('sessionID', localStorage.getItem("sessionID"));
+    console.log("Inside http service update", url, headers);
     return this.http
-      .put(`${API_HOST}/api/${url}/` + elementID, newElement)
+      .put(`${API_HOST}/api/${url}/` + elementID, newElement, {headers: headers})
       .map((response: Response) => {
         return response.json();
       })
@@ -71,9 +78,12 @@ export class HttpService {
   }
 
   destroy(url: string, elementID: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('sessionID', localStorage.getItem("sessionID"));
+    console.log("Inside http service destroy", url, headers);
     // return Observable.throw('error');
     return this.http
-      .delete(`${API_HOST}/${url}/` + elementID)
+      .delete(`${API_HOST}/${url}/` + elementID, {headers: headers})
       .map((response: Response) => {
         return response.json();
       })

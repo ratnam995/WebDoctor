@@ -25,7 +25,7 @@ export class AddEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.httpService.getAll('fetchAllRoles').subscribe(roleRes=>{
+    this.httpService.getAll('role/fetchAllRoles').subscribe(roleRes=>{
       console.log(roleRes);
       roleRes.map(singleRoleRes=>{
         if(this.authenticationService.addOf === 'Doctor'){
@@ -54,7 +54,7 @@ export class AddEditComponent implements OnInit {
     console.log(this.userSignupForm.getRawValue());
     let dataToBeSaved= this.userSignupForm.getRawValue();
     dataToBeSaved['userRoleTag']= this.rolesObj.tag;
-    this.httpService.post('addUser', dataToBeSaved)
+    this.httpService.post('user/addUser', dataToBeSaved)
     .subscribe(response=>{
       // console.log("response", response);
       if(response.hasOwnProperty('success')){
